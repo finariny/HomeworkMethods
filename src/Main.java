@@ -47,37 +47,46 @@ public class Main {
 
     //Задание 3
     public static int countTheNumberOfDeliveryDays(int deliveryDistance) {
-        int deliveryDays = 0;
+        int deliveryDays;
         if (deliveryDistance <= 20) {
-            return deliveryDays += 1;
+            deliveryDays = 1;
         } else if (deliveryDistance <= 60) {
-            return deliveryDays += 2;
+            deliveryDays = 2;
         } else if (deliveryDistance <= 100) {
-            return deliveryDays += 3;
+            deliveryDays = 3;
         } else {
-            return deliveryDays;
+            deliveryDays = 0;
         }
+        return deliveryDays;
     }
 
     //Способ 1
     public static void printDeliveryDaysFirstWay(int days) {
-        System.out.println("Потребуется дней: " + days);
+        if (days != 0) {
+            System.out.println("Потребуется дней: " + days);
+        } else {
+            System.out.println("Доставки нет");
+        }
     }
 
     //Способ 2
     public static void printDeliveryDaysSecondWay(int deliveryDistance) {
         int days = countTheNumberOfDeliveryDays(deliveryDistance);
-        System.out.println("Потребуется дней: " + days);
+        if (days != 0) {
+            System.out.println("Потребуется дней: " + days);
+        } else {
+            System.out.println("Доставки нет");
+        }
     }
 
     public static void task3() {
         System.out.println("Задание 3");
 
         System.out.println("Способ 1");
-        int days = countTheNumberOfDeliveryDays(91);
+        int days = countTheNumberOfDeliveryDays(101);
         printDeliveryDaysFirstWay(days);
 
         System.out.println("Способ 2");
-        printDeliveryDaysSecondWay(91);
+        printDeliveryDaysSecondWay(101);
     }
 }
