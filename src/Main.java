@@ -8,7 +8,8 @@ public class Main {
         task3();
     }
 
-    public static void determineWhichYearIsALeapYear (int year) {
+    //Задание 1
+    public static void determineWhichYearIsALeapYear(int year) {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(year + " год — високосный год");
         } else {
@@ -16,12 +17,13 @@ public class Main {
         }
     }
 
-    public static void task1 () {
+    public static void task1() {
         System.out.println("Задание 1");
         determineWhichYearIsALeapYear(2020);
     }
 
-    public static void whichVersionOfTheApplicationToInstall (int clientDeviceYear, int clientOS) {
+    //Задание 2
+    public static void whichVersionOfTheApplicationToInstall(int clientDeviceYear, int clientOS) {
         int currentYear = LocalDate.now().getYear();
         if (clientDeviceYear < currentYear) {
             if (clientOS == 0) {
@@ -38,26 +40,44 @@ public class Main {
         }
     }
 
-    public static void task2 () {
+    public static void task2() {
         System.out.println("Задание 2");
         whichVersionOfTheApplicationToInstall(2020, 0);
     }
 
-    public static void countTheNumberOfDeliveryDays (int deliveryDistance) {
-        int deliveryDays = 1;
+    //Задание 3
+    public static int countTheNumberOfDeliveryDays(int deliveryDistance) {
+        int deliveryDays = 0;
         if (deliveryDistance <= 20) {
-            System.out.println("Потребуется дней: " + deliveryDays);
+            return deliveryDays += 1;
         } else if (deliveryDistance <= 60) {
-            System.out.println("Потребуется дней: " + (deliveryDays + 1));
+            return deliveryDays += 2;
         } else if (deliveryDistance <= 100) {
-            System.out.println("Потребуется дней: " + (deliveryDays + 2));
+            return deliveryDays += 3;
         } else {
-            System.out.println("Доставки нет");
+            return deliveryDays;
         }
     }
 
-    public static void task3 () {
+    //Способ 1
+    public static void printDeliveryDaysFirstWay(int days) {
+        System.out.println("Потребуется дней: " + days);
+    }
+
+    //Способ 2
+    public static void printDeliveryDaysSecondWay(int deliveryDistance) {
+        int days = countTheNumberOfDeliveryDays(deliveryDistance);
+        System.out.println("Потребуется дней: " + days);
+    }
+
+    public static void task3() {
         System.out.println("Задание 3");
-        countTheNumberOfDeliveryDays(21);
+
+        System.out.println("Способ 1");
+        int days = countTheNumberOfDeliveryDays(91);
+        printDeliveryDaysFirstWay(days);
+
+        System.out.println("Способ 2");
+        printDeliveryDaysSecondWay(91);
     }
 }
